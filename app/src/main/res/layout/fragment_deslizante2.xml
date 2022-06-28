@@ -4,11 +4,11 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/texto_fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@color/teal_200"
+        android:background="@color/purple_700"
+        android:text="VISTA 3"
         android:gravity="center"
         android:textSize="60sp"
         android:textColor="@color/white">

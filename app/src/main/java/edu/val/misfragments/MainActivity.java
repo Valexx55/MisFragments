@@ -18,5 +18,7 @@ public class MainActivity extends AppCompatActivity {
         this.adapterFragmentos = new AdapterFragmentos(this);
         //le digo al viewPager: este adapter, te va a IR DANDO LOS FRAGMETS/pantallas
         this.viewPager2.setAdapter(this.adapterFragmentos);
-    }
+        //TODO mirar cómo hacer circular el ViewPager
+
+         }
 }
