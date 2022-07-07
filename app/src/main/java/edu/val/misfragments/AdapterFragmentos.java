@@ -9,6 +9,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class AdapterFragmentos extends FragmentStateAdapter {
 
+    //private int[] array_datos = {1, 2, 3, 4, 5, 6};
     private int[] array_datos = {1, 2, 3};
 
     public AdapterFragmentos(@NonNull FragmentActivity fragmentActivity) {

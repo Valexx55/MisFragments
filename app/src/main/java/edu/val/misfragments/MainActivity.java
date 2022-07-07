@@ -1,5 +1,6 @@
 package edu.val.misfragments;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -7,10 +8,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity  {
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
+
+public class MainActivity extends AppCompatActivity implements TabLayoutMediator.TabConfigurationStrategy {
 
     private ViewPager2 viewPager2;
     private AdapterFragmentos adapterFragmentos;
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +27,21 @@ public class MainActivity extends AppCompatActivity  {
         this.viewPager2.setAdapter(this.adapterFragmentos);
         this.viewPager2.setOrientation(ViewPager2.ORIENTATION_VERTICAL);//ORIENTACIÓN HORIZONTAL POR DEFECTO
 
+        this.tabLayout = findViewById(R.id.mitabl);
+        //this.tabLayout.setupWithViewPager(viewPager2);
+
+        //esto sería la forma de generar los tabs de forma dinámica
+        //sin tener ninguno declarado en el layout
+        //y así creamos tantos tabs como fragments
+       /*
+
+       int ntabs = this.adapterFragmentos.getItemCount();
+        for (int i=0; i<ntabs;i++)
+        {
+            tabLayout.addTab(tabLayout.newTab().setText("Tab "+ i));
+        }*/
+        //
+        new TabLayoutMediator(tabLayout, viewPager2, this).attach();
 
          }
 
@@ -51,5 +71,13 @@ public class MainActivity extends AppCompatActivity  {
         } else {
             this.viewPager2.setCurrentItem(n_fragment-1);
         }
+    }
+
+    //este método es invocado de forma obligatoria en el viewpager2
+    //y se usa para ponerle un título al tab/pestaña
+    //si no se pone, se queda blanco: obligatorio
+    @Override
+    public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+        tab.setText("VISTA " + (position+1));
     }
 }

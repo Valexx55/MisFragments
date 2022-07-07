@@ -1,6 +1,7 @@
 package edu.val.misfragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ public class MiFragmento extends Fragment {
             int n = bundle.getInt("VALOR");
             TextView textView = fragment.findViewById(R.id.texto_fragment); //textview dentro del fragment del layout
             textView.setText("VISTA " + n);
+            Log.d("ETIQUETA_LOG", "FRAGMENT CREADO NUMERO "+n );
 
         return fragment;
     }
